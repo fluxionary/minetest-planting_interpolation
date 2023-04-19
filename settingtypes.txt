@@ -1,0 +1,8 @@
+# max time in us for interpolation to trigger
+planting_interpolation:max_delay (max delay) int 3000000 0
+
+# max distance in nodes for interpolation
+planting_interpolation:max_distance (max distance) int 33 0
+
+# max number of server steps between plantings that get interpolated
+planting_interpolation:steps_to_count (steps to count) int 6 1
