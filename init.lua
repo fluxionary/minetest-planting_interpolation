@@ -27,7 +27,9 @@ local function xor(a, b)
 end
 
 local function iterate_between(p1, p2)
-	assert(p1.x == p2.x or p1.z == p2.z)
+	if p1.x ~= p2.x and p1.z ~= p2.z then
+		return function() end
+	end
 	local p = table.copy(p1)
 	if p1.x == p2.x then
 		-- iterate z
