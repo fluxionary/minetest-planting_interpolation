@@ -22,10 +22,6 @@ for _ = 1, steps_to_count do
 	table.insert(dtimes, 0)
 end
 
-local function xor(a, b)
-	return (a or b) and not (a and b)
-end
-
 local function iterate_between(p1, p2)
 	if p1.x ~= p2.x and p1.z ~= p2.z then
 		return function() end
@@ -148,7 +144,9 @@ function farming.place_seed(itemstack, player, pointed_thing, plant)
 
 	local offset = pos - last_place.pos
 
-	if offset.y ~= 0 and not xor(offset.x == 0, offset.z == 0) then
+	if offset.y ~= 0 or (offset.x == 0) == (offset.z == 0) then
+		-- if y position is offset
+		-- if both (or neither) x&z position are offset
 		return old_place_seed(itemstack, player, pointed_thing, plant)
 	end
 
