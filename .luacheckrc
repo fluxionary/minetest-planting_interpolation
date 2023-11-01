@@ -652,6 +652,7 @@ stds.planting_interpolation = {
 	},
 	read_globals = {
 		"fmod",
+		"futil",
 		"farming",
 	},
 }

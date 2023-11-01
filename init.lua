@@ -2,6 +2,8 @@ if farming.mod ~= "redo" then
 	error("planting interpolation requires farming redo")
 end
 
+futil.check_version({ year = 2023, month = 11, day = 1 }) -- is_player
+
 planting_interpolation = fmod.create()
 
 local s = planting_interpolation.settings
@@ -112,7 +114,7 @@ function farming.place_seed(itemstack, player, pointed_thing, plant)
 		return old_place_seed(itemstack, player, pointed_thing, plant)
 	end
 
-	if not minetest.is_player(player) then
+	if not futil.is_player(player) then
 		-- machines are not applicable
 		return old_place_seed(itemstack, player, pointed_thing, plant)
 	end
